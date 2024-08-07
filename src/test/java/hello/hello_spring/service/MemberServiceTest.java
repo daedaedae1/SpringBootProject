@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MemberSerivceTest {
+class MemberServiceTest {
 
-    MemberService memberSerivce;
-    MemoryMemberRepository memberRepository ;
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
 
     @BeforeEach
     public void beforeEach() {
         memberRepository = new MemoryMemberRepository();
-        memberSerivce = new MemberService(memberRepository);
+        memberService = new MemberService(memberRepository);
     }
 
     @AfterEach      // 어떤 메소드(여기선 Test) 하나가 끝날 때마다 동작한다.
@@ -33,10 +33,10 @@ class MemberSerivceTest {
         member.setName("spring");
 
         // when
-        Long saveId = memberSerivce.join(member);
+        Long saveId = memberService.join(member);
 
         // then
-        Member findMember = memberSerivce.findOne(saveId).get();
+        Member findMember = memberService.findOne(saveId).get();
         assertThat(member.getName()).isEqualTo(findMember.getName());
     }
 
@@ -50,8 +50,8 @@ class MemberSerivceTest {
         member2.setName("spring");
 
         // when
-        memberSerivce.join(member1);
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberSerivce.join(member2));
+        memberService.join(member1);
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
@@ -75,3 +75,4 @@ class MemberSerivceTest {
     @Test
     void findOne() {
     }
+}

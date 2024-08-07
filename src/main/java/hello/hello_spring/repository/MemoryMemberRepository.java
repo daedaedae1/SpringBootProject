@@ -25,8 +25,7 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findByName(String name) {
-        return store.values().stream()
-                .filter(member -> member.getName().equals(name))    // 람다식이라고 함.
+        return store.values().stream().filter(member -> member.getName().equals(name))    // 람다식이라고 함.
                 .findAny();     // map에서 돌면서 찾아지면 걔를 반환하고, 끝까지 없으면 Optioanl에 null을 포함해서 반환.
     }
 

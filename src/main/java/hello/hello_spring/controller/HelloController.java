@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
-    @GetMapping ("hello")
+    @GetMapping("hello")
     public String hello(Model model) {
         model.addAttribute("data", "hello!!");
         return "hello"; // 템플릿에 있는 hello.html을 실행시켜라.
