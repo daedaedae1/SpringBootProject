@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class MemberService {        // command + shift + T -> 테스트 클래스 생성
 
     private final MemberRepository memberRepository;
 
-    @Autowired
+    // 생성자를 통해서 리포지토리가 들어옴. DI(디펜던시 인젝션) 중 생성자 주입이라고 한다.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
