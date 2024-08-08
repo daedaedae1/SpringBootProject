@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}">  <!-- 객체만큼 반복 -->
+                <td th:text="${member.id}"></td>    <!-- 자바 프로퍼티 방식의 접근. 게터세터 접근 방식. getId()에 접근함. 값을 가져와서 출력 -->
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
