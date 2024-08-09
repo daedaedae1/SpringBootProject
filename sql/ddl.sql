@@ -8,3 +8,5 @@ create table member
 );
 
 delete from member;
+
+insert into member(name) values('spring1');

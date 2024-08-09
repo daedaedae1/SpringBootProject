@@ -6,6 +6,7 @@ import hello.hello_spring.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,6 +22,7 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
+    // @Commit // 이게 있으면, 트랜잭셔널 어노테이션이 있어도 DB에 값이 저장된다.
     public void 회원가입() throws Exception {
 //Given
         Member member = new Member();

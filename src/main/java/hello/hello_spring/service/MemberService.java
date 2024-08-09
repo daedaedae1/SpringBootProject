@@ -5,10 +5,12 @@ import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional  // JPA를 쓰려면 항상 이게 있어야 한다. 데이터를 저장하거나 변경할 때 항상 있어야 함.
 public class MemberService {        // command + shift + T -> 테스트 클래스 생성
 
     private final MemberRepository memberRepository;
